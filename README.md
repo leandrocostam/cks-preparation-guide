@@ -8,7 +8,7 @@ The references were selected for the [Exam Curriculum 1.23](https://github.com/c
 
 Please, feel free to place a pull request whether something is not up-to-date, should be added or contains wrong information/reference.
 
-## CNCF Preparation Guides
+There are other Kubernetes certification exam preparation guides available:
 
 - [Certified Kubernetes Administrator (CKA) - Preparation Guide](https://github.com/leandrocostam/cka-preparation-guide)
 
@@ -32,15 +32,50 @@ Exam objectives that outline of the knowledge, skills and abilities that a Certi
 
 - Use Network security policies to restrict cluster level access
 
+    - [Kubernetes Documentation > Concepts > Services, Load Balancing, and Networking > Network Policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/)
+
 - Use CIS benchmark to review the security configuration of Kubernetes components (etcd, kubelet, kubedns, kubeapi)
+
+    - [CIS Security > Securing Kubernetes](https://www.cisecurity.org/benchmark/kubernetes)
+    - [Cloud Native Wiki - CIS Benchmark Best Practices](https://www.aquasec.com/cloud-native-academy/kubernetes-in-production/kubernetes-cis-benchmark-best-practices-in-brief/)
+    - [GitHub > Aqua Security > kube-bench](https://github.com/aquasecurity/kube-bench)
 
 - Properly set up Ingress objects with security control
 
+    - [Kubernetes Documentation > Concepts > Services, Load Balancing, and Networking > Ingress > TLS](https://kubernetes.io/docs/concepts/services-networking/ingress/#tls)
+
 - Protect node metadata and endpoints
+
+    - [Kubernetes Documentation > Tasks > Administer a Cluster > Securing a Cluster](https://kubernetes.io/docs/tasks/administer-cluster/securing-a-cluster/#restricting-cloud-metadata-api-access)
+
+        ```yaml
+        # all pods in namespace cannot access metadata endpoint
+        apiVersion: networking.k8s.io/v1
+        kind: NetworkPolicy
+        metadata:
+        name: cloud-metadata-deny
+        namespace: default
+        spec:
+        podSelector: {}
+        policyTypes:
+        - Egress
+        egress:
+        - to:
+            - ipBlock:
+                cidr: 0.0.0.0/0
+                except:
+                - 169.254.169.254/32
+        ```
 
 - Minimize use of, and access to, GUI elements
 
+    - [Kubernetes Documentation > Tasks > Access Applications in a Cluster > Deploy and Access the Kubernetes Dashboard](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/#accessing-the-dashboard-ui)
+
 - Verify platform binaries before deploying
+
+    - [Kubernetes Documentation > Tasks > Install Tools > Install and Set Up kubectl on Linux](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/)
+
+        > Note: Check the step 2 - validate binary
 
 ## Cluster Hardening (15%)
 
@@ -99,7 +134,7 @@ Exam objectives that outline of the knowledge, skills and abilities that a Certi
 # CKS Preparation Courses
 
 - [Certified Kubernetes Security Specialist (CKS) - A Cloud Guru (formerly Linux Academy)](https://acloudguru.com/course/certified-kubernetes-security-specialist-cks)
-- [Udemy - Kubernetes CKS by Kim Wüstkamp)](https://www.udemy.com/course/certified-kubernetes-security-specialist/)
+- [KodeKloud - Certified Kubernetes Security Specialist (CKS)](https://kodekloud.com/courses/certified-kubernetes-security-specialist-cks/)
 
 # kubectl Ninja
 
