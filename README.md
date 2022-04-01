@@ -81,55 +81,116 @@ Exam objectives that outline of the knowledge, skills and abilities that a Certi
 
 - Restrict access to Kubernetes API
 
+    - [Kubernetes Documentation > Concepts > Security > Controlling Access to the Kubernetes API](https://kubernetes.io/docs/concepts/security/controlling-access/)
+
 - Use Role Based Access Controls to minimize exposure
+
+    - [Kubernetes Documentation > Reference > API Access Control > Using RBAC Authorization](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)
 
 - Exercise caution in using service accounts e.g. disable defaults, minimize permissions on newly created ones
 
+    - [Kubernetes Documentation > Reference > API Access Control > Managing Service Accounts](https://kubernetes.io/docs/reference/access-authn-authz/service-accounts-admin/)
+
 - Update Kubernetes frequently
+
+    - [Kubernetes Documentation > Tasks > Administer a Cluster > Upgrade A Cluster](https://kubernetes.io/docs/tasks/administer-cluster/cluster-upgrade/)
 
 ## System Hardening (15%)
 
 - Minimize host OS footprint (reduce attack surface)
 
+    - Remove unnecessary packages
+    - Identify and address open ports
+    - Shut down any unnecessary services
+
 - Minimize IAM roles
+
+    - [AWS > Security best practices in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html)
+    - [GCP - Using IAM securely](https://cloud.google.com/iam/docs/using-iam-securely)
+    - [Azure > Best practices for Azure RBAC](https://docs.microsoft.com/en-us/azure/role-based-access-control/best-practices)
 
 - Minimize external access to the network
 
+    - [Kubernetes Documentation > Concepts > Services, Load Balancing, and Networking > Network Policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/)
+
 - Appropriately use kernel hardening tools such as AppArmor, seccomp
+
+    - [Kubernetes Documentation > Tutorials > Security > Restrict a Container's Access to Resources with AppArmor](https://kubernetes.io/docs/tutorials/security/apparmor/)
+    - [Kubernetes Documentation > Tutorials > Security > Restrict a Container's Syscalls with seccomp](https://kubernetes.io/docs/tutorials/security/seccomp/)
+    - [AppArmor Documentation](https://gitlab.com/apparmor/apparmor/-/wikis/Documentation)
 
 ## Minimize Microservice Vulnerabilities (20%)
 
 - Setup appropriate OS level security domains e.g. using PSP, OPA, security contexts
 
+    - [Kubernetes Documentation > Concepts > Security > Pod Security Policies](https://kubernetes.io/docs/concepts/security/pod-security-policy/#what-is-a-pod-security-policy)
+    - [Kubernetes Blog > OPA Gatekeeper: Policy and Governance for Kubernetes](https://kubernetes.io/blog/2019/08/06/opa-gatekeeper-policy-and-governance-for-kubernetes/)
+    - [Kubernetes Documentation > Tasks > Configure Pods and > Containers > Configure a Security Context for a Pod or Container](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/)
+
 - Manage kubernetes secrets
+
+    - [Kubernetes Documentation > Concepts > Configuration > Secrets](https://kubernetes.io/docs/concepts/configuration/secret/)
 
 - Use container runtime sandboxes in multi-tenant environments (e.g. gvisor, kata containers
 
+    - [Kubernetes Documentation > Concepts > Security > Pod Security Standards](https://kubernetes.io/docs/concepts/security/pod-security-standards/#what-about-sandboxed-pods)
+    - [Kubernetes Documentation > Concepts > Containers > Runtime Class](https://kubernetes.io/docs/concepts/containers/runtime-class/)
+    - [gvisor](https://gvisor.dev/docs/user_guide/quick_start/kubernetes/)
+    - [kata containers](https://katacontainers.io/)
+
 - Implement pod to pod encryption by use of mTLS
+
+    - [Kubernetes Documentation > Concepts > Services, Load Balancing, and Networking > Ingress > TLS](https://kubernetes.io/docs/concepts/services-networking/ingress/#tls)
 
 ## Supply Chain Security (20%)
 
 - Minimize base image footprint
 
+    - Remove exploitable and non-sssential software
+    - Use multi-stage Dockerfiles to keep software compilation out of runtime images
+    - Never bake any secrets into your images
+    - Image scanning
+
 - Secure your supply chain: whitelist allowed image registries, sign and validate images
+
+    - [Kubernetes Documentation > Reference > API Access Control > Using Admission Controllers > ImagePolicyWebhook](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#imagepolicywebhook)
 
 - Use static analysis of user workloads (e.g. kubernetes resources, docker files)
 
+    - Secure base images
+    - Remove unnecessary packages
+    - Stop containers from using elevated privileges
+
 - Scan images for known vulnerabilities
+
+    - [Trivy](https://github.com/aquasecurity/trivy)
 
 ## Monitoring, Logging and Runtime Security (20%)
 
 - Perform behavioral analytics of syscall process and file activities at the host and container level to detect malicious activities
 
+    - [Falco](https://falco.org/docs/)
+
 - Detect threats within physical infrastructure, apps, networks, data, users and workloads
 
 - Detect all phases of attack regardless where it occurs and how it spreads
 
+    - [Protecting Kubernetes Against MITRE ATT&CK](https://cloud.redhat.com/blog/protecting-kubernetes-against-mitre-attck-initial-access)
+
 - Perform deep analytical investigation and identification of bad actors within environment
+
+    - [Kubernetes Documentation > Tasks > Monitoring, Logging, and Debugging >Auditing](https://kubernetes.io/docs/tasks/debug-application-cluster/audit/)
 
 - Ensure immutability of containers at runtime
 
+    - [Kubernetes Documentation > Concepts > Containers](https://kubernetes.io/docs/concepts/containers/)
+    - [Kubernetes Documentation > Tasks > Configure Pods and > Containers > Configure a Security Context for a Pod or Container](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/)
+    
+        > `readOnlyRootFilesystem`: Mounts the container's root filesystem as read-only
+
 - Use Audit Logs to monitor access
+
+    - [Kubernetes Documentation > Tasks > Monitoring, Logging, and Debugging >Auditing](https://kubernetes.io/docs/tasks/debug-application-cluster/audit/)
 
 # CKS Preparation Courses
 
