@@ -1,10 +1,10 @@
 ![Check Kubernetes documentation links](https://github.com/leandrocostam/cks-preparation-guide/workflows/Check%20Kubernetes%20documentation%20links/badge.svg)
 
-# Certified Kubernetes Security Specialist (CKS) - V1.23
+# Certified Kubernetes Security Specialist (CKS) - V1.24
 
 The objective of this repository is help you for taking the Certified Kubernetes Security Specialist (CKS) exam using online resources, especially using resources from [Kubernetes Official Documentation](https://kubernetes.io).
 
-The references were selected for the [Exam Curriculum 1.23](https://github.com/cncf/curriculum/blob/433eda69a096d599675afa3b00ac6507fc4b893c/CKS_Curriculum_%20v1.23.pdf), and there are exclusive information for API objects and annotations. For more information, please see [CNCF Curriculum](https://github.com/cncf/curriculum/).
+The references were selected for the [Exam Curriculum 1.24](https://github.com/cncf/curriculum/raw/44b3e8aca0556baf934a20017beb5918f05a73df/CKS_Curriculum_%20v1.24.pdf), and there are exclusive information for API objects and annotations. For more information, please see [CNCF Curriculum](https://github.com/cncf/curriculum/).
 
 Please, feel free to place a pull request whether something is not up-to-date, should be added or contains wrong information/reference.
 
@@ -185,7 +185,7 @@ Exam objectives that outline of the knowledge, skills and abilities that a Certi
 
     - [Kubernetes Documentation > Concepts > Containers](https://kubernetes.io/docs/concepts/containers/)
     - [Kubernetes Documentation > Tasks > Configure Pods and > Containers > Configure a Security Context for a Pod or Container](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/)
-    
+
         > `readOnlyRootFilesystem`: Mounts the container's root filesystem as read-only
 
 - Use Audit Logs to monitor access
@@ -206,7 +206,6 @@ Tip: Use [kubectl Cheatsheet](https://kubernetes.io/docs/reference/kubectl/cheat
 Practice a lot with Kubernetes:
 
 - [Killer.sh - CKS Simulator](https://killer.sh/cks)
-- [Katacoda: CKS Challenges](https://www.katacoda.com/walidshaari/courses/cks-challenges)
 
 # CKS Tips
 
