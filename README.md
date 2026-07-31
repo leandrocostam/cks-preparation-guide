@@ -161,6 +161,7 @@ etc.)
 - Understand your supply chain (e.g. SBOM, CI/CD, artifact repositories)
 
     - [bom CLI reference > bom validate > Check artifacts against SPDX manifests with bom](https://kubernetes-sigs.github.io/bom/cli-reference/bom_validate/)
+    - [Darkmoon](https://github.com/ASCIT31/Dark-Moon) - an open source (GPL-3.0) autonomous AI penetration testing platform for web, API, Active Directory and Kubernetes.
     - [GitHub articles > What is a software bill of materials (SBOM)?](https://github.com/resources/articles/what-is-an-sbom-software-bill-of-materials)
     - [Linux Foundation: SPDX tools](https://spdx.dev/use/spdx-tools/)
 
